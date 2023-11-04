@@ -30,7 +30,6 @@ np.savez('array.npz',a,b) #save multiple arrays in a zip format of .npz, should 
 #by default arrays are assigned name arr_0,arr_1 etc. but can be changed by using argument a=a,b=b
 np.load('my_array') 
 ```
-
 ### Saving and Loading Text Files
 ```
 ```
@@ -41,4 +40,96 @@ len(a) # Length of array
 a.ndim() # Number of array dimensions
 a.astype(int) # convert an array to a different datatype
 ```
+
+## Array Mathematics
+
+All of the following operations happens element wise.
+```
+# arrays a,b
+
+# Subtraction
+g = a-b
+np.subtract(a,b)
+
+# Addition
+b+a
+np.add(b,a)
+
+# Division
+a/b
+np.divide(a,b)
+
+# Multiplication
+a*b
+np.multiply(a,b)
+
+# Dot Product
+a.dot(b)
+np.dot(a,b)
+
+np.exp(b)
+np.sqrt(b)
+np.sin(a)
+np.cos(a)
+np.log(a)
+```
+
+```
+a == b #T/F elementwise
+a<2 #T/F elementwise
+```
+
+## Aggregrate functions
+```
+a.sum() # sum
+a.min() # min of entire array. axis=0,1.. can be specified as parameter if we want for a particular row
+a.max() #max and axis same
+a.mean()
+np.median(a) 
+```
+
+## Copying arrays
+```
+b = np.copy(a) #shallow copy, not preferred
+b = a.copy() #deep copy, preferred
+```
+
+## Sorting 
+```
+a.sort() # sort the array
+a.sort(axis = 0) # sort the elements of arrays axis
+```
+
+## Subsetting, Slicing, Indexing
+```
+a[2] #element at 2nd index
+b[1,2] # element at row 1 column 2
+b[1][2] # same as above
+
+a[a<2] # select elements from a less than 2
+```
+
+## Array Manipulation
+```
+# Transposing array
+i = np.transpose(b)
+b.T
+
+# changing shape
+b.ravel() #flatten array
+g.reshape(3,2) # change dimensions to 3 rows 2 columns
+g.reshape(-1) #flatten array
+
+# combining arrays
+np.concatenate((a,d),axis=0)
+np.vstack((a,b)) # stack arrays vertically, row wise
+np.hstack((a,b)) # stack arrays horizontally, column wise
+
+# splitting arrays
+np.hsplit(a,3) # split array horizontally at the 3rd index
+np.vsplit(a,2) # split the array vertically at the 2nd index 
+
+
+
+
 
