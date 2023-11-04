@@ -9,7 +9,8 @@ Hello world!
 print(1+2) #3
 ```
 Can comment using """ ...... """"    
-To modify ending using print(....,end = " ") or whatever end you want    
+To modify ending using print(....,end = " ") or whatever end you want  (This is for end of line of entire print statement)
+To modify seperation between entities of same print statement: print(..,..,..,sep="..")  
 
 ## Creating variables
 
