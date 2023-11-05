@@ -75,6 +75,8 @@ reviews.loc[reviews.country.isin(['Italy', 'France'])]
 
 reviews.loc[reviews.price.isnull()]
 reviews.loc[reviews.price.notnull()]
+
+top_oceania_wines = reviews.loc[:][(reviews.points>=95) & (reviews.country.isin(['Australia','New Zealand']))] #this gave the wrong answer when the conditions weren't in brackets
 ```
 
 ### Assigning Data
