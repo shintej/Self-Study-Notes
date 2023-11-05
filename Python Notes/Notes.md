@@ -1,11 +1,11 @@
 # Basic Syntax
 
 ## Printing
-```
+```python
 print("Hello world!")
 ```
 Hello world!    
-```
+```python
 print(1+2) #3
 ```
 Can comment using """ ...... """"    
@@ -14,7 +14,7 @@ To modify seperation between entities of same print statement: print(..,..,..,se
 
 ## Creating variables
 
-```
+```python
 var_int = 4
 var_string = "hello" #get length of string with len(string_name)
 var_char = 'a'
@@ -23,7 +23,7 @@ Python does not require explicit variable declaration of type
 
 ## Functions
 
-```
+```python
 def get_pay_with_more_inputs(num_hours, hourly_wage, tax_bracket): #Multiple inputs defined here
     # Pre-tax pay
     pay_pretax = num_hours * hourly_wage #The scope of this variable is inside function only
@@ -32,7 +32,7 @@ def get_pay_with_more_inputs(num_hours, hourly_wage, tax_bracket): #Multiple inp
     return pay_aftertax
 ```
 Also Possible with no arguments
-```
+```python
 # Define the function with no arguments and with no return
 def print_hello():
     print("Hello, you!")
@@ -46,7 +46,7 @@ Good morning!
 
 ## Data types
 Pretty standard stuffs. Some interesting points noted here:
-```
+```python
 x = 14 # INT
 x = 14. # FLOAT
 pi = 3.141592653
@@ -55,7 +55,7 @@ rounded pi = round (also_pi,5) # this will round the number to 5 decimal digits
 ```
 ## Conditional statements
 
-```
+```python
 #observe that there is no bracket here for the conditional statements
 def evaluate_temp_with_elif(temp):
     if temp > 38:
@@ -69,7 +69,7 @@ def evaluate_temp_with_elif(temp):
 
 ## Lists
 
-```
+```python
 flowers_list = ["pink primrose", "hard-leaved pocket orchid", "canterbury bells", "sweet pea", "english marigold", "tiger lily", "moon orchid", "bird of paradise", "monkshood", "globe thistle"]
 
 # The list has ten entries
@@ -97,7 +97,7 @@ flowers_list.remove("globe thistle")
 flowers_list.append("snapdragon") #adds at end
 ```
 If lists contain numbers
-```
+```python
 hardcover_sales = [139, 128, 172, 139, 191, 168, 170]
 
 print("Minimum:", min(hardcover_sales))
@@ -112,12 +112,12 @@ Lists are mutable ie. they can be modified in place
 Just access the index and change. Note multiple adjacent indexes can be accessed too and modified at same time by assigning them to a list.
 
 ### List functions
-```
+```python
 #sorting
 sorted(my_list)
 ```
 ### List Methods
-```
+```python
 planets.append('Pluto')
 
 planets.pop() #list.pop removes and returns the last element of a list:
@@ -132,7 +132,7 @@ Same as lists but written using (  ) instead of [  ].
 They are immutable
 
 ## Loops and List Comprehensions
-```
+```python
 # EXAMPLE 1
 planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
 for planet in planets:
@@ -157,7 +157,7 @@ while i < 10:
     i += 1 # increase the value of i by 1
 ```
 ### List comprehension
-```
+```python
 squares = []
 for n in range(10):
     squares.append(n**2)
@@ -166,11 +166,11 @@ squares
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]    
 But this syntax can be improved upon 
 
-```
+```python
 squares = [n**2 for n in range(10)]
 ```
 More examples:
-```
+```python
 short_planets = [planet for planet in planets if len(planet) < 6]
 
 loud_short_planets = [planet.upper() + '!' for planet in planets if len(planet) < 6]
@@ -185,7 +185,7 @@ or
 ## String methods
 
 Note the strings are like lists but are immutable
-```
+```python
 # String methods
 
 claim = "Pluto is a planet!"
@@ -212,7 +212,7 @@ year, month, day = datestr.split('-')
 ## Dictionaries
 
 Dictionaries are a built-in Python data structure for mapping keys to values.    
-```
+```python
 numbers = {'one':1, 'two':2, 'three':3}
 
 numbers['one'] # 1
@@ -230,20 +230,20 @@ planet_to_initial
  'Neptune': 'N'}
 ```
 A for loop over a dictionary will loop over its keys
-```
+```python
 for k in numbers:
     print("{} = {}".format(k, numbers[k])) #note this new syntax of format. pretty interesting!
 ```
 
 We can access a collection of all the keys or all the values with dict.keys() and dict.values(), respectively.
-```
+```python
 # Get all the initials, sort them alphabetically, and put them in a space-separated string.
 ' '.join(sorted(planet_to_initial.values()))
 ```
 
 The very useful dict.items() method lets us iterate over the keys and values of a dictionary simultaneously. (In Python jargon, an item refers to a key, value pair)
 
-```
+```python
 for planet, initial in planet_to_initial.items():
     print("{} begins with \"{}\"".format(planet.rjust(10), initial))
 ```
@@ -258,7 +258,7 @@ for planet, initial in planet_to_initial.items():
 
 ## Working with External Libraries
 
-```
+```python
 from ... import * #imports all
 from ... import ... #import as required, preferred
 import ...
