@@ -37,7 +37,7 @@ reviews['country'][0] # or reviews.country[0]
 ```
 
 ### Indexing in Pandas
-Pandas has its own native accessor operations. loc and iloc. They are row based ie. selecting rows first. Hence both are row first, column second, opposite of normal language syntax
+Pandas has its own native accessor operations. loc and iloc. They are row based ie. selecting rows first. Hence both are row first, column second, opposite of how you would do selection if using native accessing
 
 ```python
 # iloc
@@ -85,6 +85,8 @@ reviews['critic'] = 'everyone' #constant assignment
 reviews['index_backwards'] = range(len(reviews), 0, -1) #assigning numbers
 #can assign a list as well. series too im sure tho haven't tested yet
 ```
+# Summary Functions and Maps
+
 
 
 
