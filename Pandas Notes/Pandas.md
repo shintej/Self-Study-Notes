@@ -21,7 +21,7 @@ b = pd.Series([1,2,3,4,5,6],index=[a,b,c,d,e,f],name="numbers") #options in Seri
 a = pd.read_csv("hyperlink",index_col=0) #by default this gives 0,1,2... but with index_col we can specify which column from our data we want to choose
 
 # Writing
-a.to_csv("Name.csv)
+a.to_csv("Name.csv")
 ```
 
 # Indexing, Selecting and Assigning
