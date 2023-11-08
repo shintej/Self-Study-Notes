@@ -88,6 +88,116 @@ reviews['index_backwards'] = range(len(reviews), 0, -1) #assigning numbers
 #can assign a list as well. series too im sure tho haven't tested yet
 ```
 # Summary Functions and Maps
+Inbuilt functions in pandas that give us information of dataframe
+```python
+reviews.points.describe() #gives summary of values of reviews.points depending on what datatype that series is
+reviews.points.mean()
+reviews.taster_name.unique() #gives all unique entries
+reviews.taster_name.value_counts() #gives all unique entries with their number
+```
+
+### Maps
+For mapping values of a series or dataframe to desired outputs		
+does not modify main object, returns modified new object	
+```python
+review_points_mean = reviews.points.mean()
+reviews.points.map(lambda p: p - review_points_mean) #for series
+
+def remean_points(row):
+    row.points = row.points - review_points_mean
+    return row
+reviews.apply(remean_points, axis='columns') #for dataframe
+
+#faster way of remeaning points column using inbuilt maths abilities of series
+review_points_mean = reviews.points.mean()
+reviews.points - review_points_mean
+
+reviews.country + " - " + reviews.region_1
+```
+Some nice questions:		
+Q. I'm an economical wine buyer. Which wine is the "best bargain"? Create a variable bargain_wine with the title of the wine with the highest points-to-price ratio in the dataset.
+```python
+bargain_idx = (reviews.points / reviews.price).idxmax() #idxmax() gives the first occuring entry with max value of what idxmax() is applied on
+bargain_wine = reviews.loc[bargain_idx, 'title']
+```
+
+# Grouping and sorting
+Maps allow us to transform data in a DataFrame or Series one value at a time for an entire column. 	
+However, often we want to group our data, and then do something specific to the group the data is in.		
+
+### Groupwise analysis
+```python
+reviews.groupby('points').points.count() #replicating what .value_counts() does
+
+reviews.groupby('points').price.min()
+
+reviews.groupby(['country']).price.agg([len, min, max]) #agg lets us run different functions simultaneously
+```
+You can think of each group we generate as being a slice of our DataFrame containing only data with values that match. This DataFrame is accessible to us directly using the apply() method, and we can then manipulate the data in any way we see fit. For example, here's one way of selecting the name of the first wine reviewed from each winery in the dataset:
+```python
+reviews.groupby('winery').apply(lambda df: df.title.iloc[0])
+```
+
+
+For even more fine-grained control, you can also group by more than one column. For an example, here's how we would pick out the best wine by country and province:
+```python
+reviews.groupby(['country', 'province']).apply(lambda df: df.loc[df.points.idxmax()])
+
+countries_reviewed = reviews.groupby(['country', 'province']).description.agg([len])
+```
+Note that this creates a multiindex data-structure
+To reset it to normal dataframe 
+```python
+countries_reviewed.reset_index()
+```
+
+### Sorting
+```python
+countries_reviewed = countries_reviewed.reset_index()
+countries_reviewed.sort_values(by='len') #ascending by default
+
+countries_reviewed.sort_values(by='len', ascending=False)
+
+#to sort index values, again with same arguments
+countries_reviewed.sort_index()
+
+#sorting multiple values at one time
+countries_reviewed.sort_values(by=['country', 'len'])
+```
+
+# Data Types and Missing Values
+```python
+reviews.points.astype('float64') #changing dtype
+```
+### Missing data
+```python
+reviews[pd.isnull(reviews.country)] # to select NaN entries, or its companion pd.notnull()
+
+reviews.region_2.fillna("Unknown") # to fill missing values
+
+reviews.taster_twitter_handle.replace("@kerinokeefe", "@kerino") #replacing values
+```
+The replace() method is worth mentioning here because it's handy for replacing missing data which is given some kind of sentinel value in the dataset: things like "Unknown", "Undisclosed", "Invalid", and so on.
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
 
 
 
