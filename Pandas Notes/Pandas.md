@@ -179,6 +179,28 @@ reviews.taster_twitter_handle.replace("@kerinokeefe", "@kerino") #replacing valu
 ```
 The replace() method is worth mentioning here because it's handy for replacing missing data which is given some kind of sentinel value in the dataset: things like "Unknown", "Undisclosed", "Invalid", and so on.
 
+# Combining Dataframes and renaming them
+
+# Merge Combine
+Horizontal combination. That is combination based on index. Side to side. Most easy as it takes care of things for you by default.	
+Merge "how" is basically what sort of union. Outer is AUB, Inner is A^B where ^ is intersection, Left is all of A with A^B part of B, right is all of B with A^B part of A	
+Here A is the first DF and B is second DF. ==> A.merge(B)
+```python
+# Both of these are same thing. merge handles common column names on its own
+df1.merge(df2)
+df1.merge(df2, how = 'inner', on = ['FellowshipID', 'FirstName']) #how has inner,outer,left,right as options.
+#using on we can specify which columns to use
+```
+# Concat Combine
+Vertical combination. Comination based on column name. On top of one another	
+"how" works similarly
+```python
+pd.concat([df1,df2], join = 'outer', axis = 1)
+```
+
+
+
+
 
 
 
