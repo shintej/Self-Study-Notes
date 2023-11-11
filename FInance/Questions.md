@@ -49,7 +49,6 @@ The signal/noise ratio gets progressively higher with the increase of statistica
     From what I have read, high frequency trading programs just find an inefficiency in the market and exploit it as fast as they can. IIRC most of their speed comes from implementation efficiency rather than algorithmic efficiency.
 
 They use techniques like:
-
     Co-locating in the same place as the trading servers for lower latency (100ms)
     Using hand-rolled text processing instead of regular expressions.
     C for speed and efficiency.
@@ -57,7 +56,6 @@ They use techniques like:
     Tuning the size of network packets so that the whole request is sent in one transmission. 
 
 Usually an inefficiency in a market is just an arbitrage i.e, a definite opportunity to buy low and sell high. All these algorithms rely on the fact that there is a time lag between an event and the price change. These opportunities are usually about 1cent per share or less. But, with leverage one can make millions in a day. Here are a few examples:
-
     It takes a little bit of time for the price of an option to follow a stock and vice versa. If you can precisely model these differences, then one can use a computer to trade favorably.This needs some idea about options pricing and black-sholes model.Look up CUDA docs for the actual algos.    
     Recently, exchanges started charging companies for co-location and ability to see the raw orders that are yet to be processed. Usually when there is a large order from institutional investors the price goes up by about 2 cents. Some high frequency programs monitor these order feeds to buy shares at the current price (from dark pools and other sources) and sell them at a slightly higher price(about 1cent more) to these institutional investors. All this happens in under 5ms.    
     There is also arbitrage in currency markets. Sometimes the prices of currencies vary slightly and take some time to adjust for various reasons. Some high frequency traders write programs to take advantage of this. This is a simple graph algorithm. I am unsure how it is implemented in practice.    
