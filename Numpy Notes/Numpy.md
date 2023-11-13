@@ -130,7 +130,7 @@ np.hsplit(a,3) # split array horizontally at the 3rd index
 np.vsplit(a,2) # split the array vertically at the 2nd index 
 
 ```
-
+Many more, will keep updating as and when I encounter.
 
 
 
